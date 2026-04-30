@@ -181,7 +181,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* ── Form ── */
   .contact-form-wrap {
     background: #fff;
-    border: 2px solid #cccde8;
+    border: 2px solid #ddddf0;
     border-radius: 20px;
     padding: 2.5rem;
   }
@@ -202,6 +202,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    min-width: 0;
   }
 
   label {
@@ -214,14 +215,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   select,
   textarea {
     padding: 0.7rem 1rem;
-    border: 2px solid #cccde8;
+    border: 2px solid #ddddf0;
     border-radius: 10px;
     font-size: 0.95rem;
     font-family: inherit;
     color: #1a1a1a;
-    background: #fafafa;
+    background: #f8f8fd;
     transition: border-color 0.2s ease;
     width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
   }
 
   input:focus,
@@ -270,7 +278,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .sidebar-card {
     background: #fff;
-    border: 2px solid #cccde8;
+    border: 2px solid #ddddf0;
     border-radius: 16px;
     padding: 1.25rem 1.5rem;
     transition: border-color 0.2s ease;
