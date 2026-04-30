@@ -1,0 +1,100 @@
+---
+const navLinks = [
+  { href: "/",         label: "Home" },
+  { href: "/about",    label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/gallery",  label: "Gallery" },
+  { href: "/contact",  label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__logo">🐾 Pawsome</a>
+    <nav aria-label="Main navigation">
+      {navLinks.map(({ href, label }) => (
+  
+    <a href={href}
+    class={"nav-link" + (currentPath === href ? " nav-link--active" : "")}
+  >
+    {label}
+  </a>
+))}
+    </nav>
+    <a href="/contact" class="navbar__cta">Book Now</a>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    background: #fff;
+    border-bottom: 2px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .navbar__logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff6b35;
+    text-decoration: none;
+    margin-right: auto;
+    letter-spacing: -0.02em;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background: #fff3ee;
+    color: #ff6b35;
+  }
+
+  .nav-link--active {
+    background: #fff3ee;
+    color: #ff6b35;
+    font-weight: 600;
+  }
+
+  .navbar__cta {
+    background: #ff6b35;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .navbar__cta:hover {
+    background: #e85520;
+    transform: translateY(-1px);
+  }
+</style>
