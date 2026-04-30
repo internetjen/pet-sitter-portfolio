@@ -7,7 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- HERO -->
   <section class="hero">
     <div class="hero__inner">
-      <p class="hero__eyebrow">🐾 Trusted Pet Care in Your City</p>
+      <p class="hero__eyebrow">🐾 Trusted Pet Care in Chicago</p>
       <h1 class="hero__headline">Your pet's home<br/> away from home.</h1>
       <p class="hero__sub">Professional, loving pet care while you're away. Because your furry family deserves the best.</p>
       <div class="hero__actions">
@@ -54,7 +54,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="about-teaser__text">
         <p class="eyebrow">About Me</p>
         <h2>A pet lover you can actually trust</h2>
-        <p>Hi! I'm [Name], a lifelong animal lover with years of experience caring for pets of all shapes and sizes. I treat every pet like my own — with patience, love, and plenty of treats.</p>
+        <p>Hi! I'm Amelia, a lifelong animal lover with years of experience caring for pets of all shapes and sizes. I treat every pet like my own — with patience, love, and plenty of treats.</p>
         <a href="/about" class="btn btn--primary">More About Me</a>
       </div>
       <div class="about-teaser__image">
@@ -263,7 +263,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .about-teaser__placeholder {
     background: #f0f0f0;
     border-radius: 20px;
-    height: 360px;
+    height: clamp(200px, 50vw, 360px); /* FIX 2b: was fixed 360px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,12 +341,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
+    /* FIX 1: Reduce section padding on mobile */
+    .hero {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .services-snap,
+    .gallery-teaser,
+    .testimonials,
+    .cta {
+      padding: 3rem 1.25rem;
+    }
+
+    .about-teaser {
+      padding: 3rem 1.25rem;
+    }
+
+    /* FIX 2a: Stack about teaser, image on top */
     .about-teaser__inner {
       grid-template-columns: 1fr;
     }
 
+    .about-teaser__image {
+      order: -1;
+    }
+
+    /* FIX 3: Gallery drops to 2-col on mobile */
     .gallery-teaser__grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* FIX 3b: Single column on very small screens */
+  @media (max-width: 400px) {
+    .gallery-teaser__grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

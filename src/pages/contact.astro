@@ -20,8 +20,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="contact-form-wrap">
         <form class="contact-form" name="contact" method="POST" data-netlify="true">
 
-        <input type="hidden" name="form-name" value="contact" />
-
+          <input type="hidden" name="form-name" value="contact" />
 
           <!-- Name & Email -->
           <div class="form-row">
@@ -106,7 +105,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="sidebar-card">
           <span class="sidebar-card__icon">📍</span>
           <h3>Location</h3>
-          <p>[Your City, State]</p>
+          <p>Chicago, IL</p>
         </div>
         <div class="sidebar-card">
           <span class="sidebar-card__icon">📧</span>
@@ -301,12 +300,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
+    .contact-hero {
+      padding: 3rem 1.25rem;
+    }
+
+    .contact-section {
+      padding: 3rem 1.25rem;
+    }
+
     .contact-section__inner {
       grid-template-columns: 1fr;
     }
 
+    .contact-form-wrap {
+      padding: 1.5rem;
+    }
+
     .form-row {
       grid-template-columns: 1fr;
+    }
+
+    .btn-submit {
+      align-self: stretch;
+      text-align: center;
     }
 
     .contact-sidebar {
@@ -316,6 +332,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .sidebar-card {
       flex: 1 1 calc(50% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .contact-sidebar {
+      flex-direction: column;
+    }
+
+    .sidebar-card {
+      flex: 1 1 100%;
     }
   }
 </style>
