@@ -18,7 +18,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container contact-section__inner">
 
       <div class="contact-form-wrap">
-        <form class="contact-form">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+
+        <input type="hidden" name="form-name" value="contact" />
+
 
           <!-- Name & Email -->
           <div class="form-row">
