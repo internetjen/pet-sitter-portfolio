@@ -1,7 +1,269 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    icon: "🦮",
+    title: "Dog Walking",
+    description: "Daily walks tailored to your dog's pace, energy level, and favorite routes. Rain or shine, we've got them covered.",
+    price: "$25",
+    per: "per walk",
+    details: ["30 minute walks", "GPS tracked routes", "Post-walk report card"],
+  },
+  {
+    icon: "🏡",
+    title: "Pet Sitting / Drop-in Visits",
+    description: "I come to your home so your pet stays in their comfort zone. Feeding, playtime, cuddles, and a tidy space — all included.",
+    price: "$20",
+    per: "per visit",
+    details: ["Up to 1 hour visits", "Feeding & fresh water", "Photo updates"],
+  },
+  {
+    icon: "🌙",
+    title: "Overnight Stays",
+    description: "I stay at your home overnight so your pet is never alone for too long. Perfect for anxious pets or those on a strict routine.",
+    price: "$75",
+    per: "per night",
+    details: ["8pm – 8am", "Includes a morning walk", "Daily updates"],
+  },
+  {
+    icon: "🐱",
+    title: "Cat Check-ins",
+    description: "Cats are independent but still need love! I'll stop by to feed, scoop, play, and give all the chin scratches.",
+    price: "$18",
+    per: "per visit",
+    details: ["Up to 45 minute visits", "Litter box cleaning", "Playtime & cuddles"],
+  },
+  {
+    icon: "🐶",
+    title: "Puppy Care",
+    description: "Puppies need extra attention, patience, and lots of potty breaks. I'm here for all of it — the cute and the chaotic.",
+    price: "$30",
+    per: "per visit",
+    details: ["Potty training support", "Socialization play", "Frequent check-ins"],
+  },
+];
 ---
 
 <BaseLayout title="Services">
-  <h1>[services page placeholder]</h1>
+
+  <!-- HERO -->
+  <section class="services-hero">
+    <div class="container">
+      <p class="eyebrow">What I Offer</p>
+      <h1>Services built around your pet</h1>
+      <p class="services-hero__sub">Every service is designed with your pet's comfort, safety, and happiness in mind. No cookie-cutter care here.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES LIST -->
+  <section class="services-list">
+    <div class="container">
+      {services.map((service) => (
+        <div class="service-item">
+          <div class="service-item__left">
+            <span class="service-item__icon">{service.icon}</span>
+            <div>
+              <h2>{service.title}</h2>
+              <p class="service-item__desc">{service.description}</p>
+              <ul class="service-item__details">
+                {service.details.map((detail) => (
+                  <li>✓ {detail}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div class="service-item__right">
+            <p class="service-item__price">{service.price}</p>
+            <p class="service-item__per">{service.per}</p>
+            <a href="/contact" class="btn">Book Now</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <h2>Not sure which service is right for you?</h2>
+      <p>Reach out and we'll figure it out together. 🐾</p>
+      <a href="/contact" class="btn btn--white">Get in Touch</a>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    background: #ff6b35;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .btn--white {
+    background: #fff;
+    color: #ff6b35;
+  }
+
+  /* ── Hero ── */
+  .services-hero {
+    background: #fff8f5;
+    padding: 5rem 1.5rem;
+  }
+
+  .services-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .services-hero__sub {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 580px;
+    line-height: 1.7;
+  }
+
+  /* ── Services List ── */
+  .services-list {
+    padding: 5rem 1.5rem;
+  }
+
+  .service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background: #fff;
+    border: 2px solid #f0f0f0;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-item:hover {
+    border-color: #ff6b35;
+    transform: translateY(-3px);
+  }
+
+  .service-item__left {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .service-item__icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .service-item__left h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.4rem;
+  }
+
+  .service-item__desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 520px;
+  }
+
+  .service-item__details {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    padding: 0;
+  }
+
+  .service-item__details li {
+    font-size: 0.85rem;
+    color: #ff6b35;
+    font-weight: 500;
+  }
+
+  .service-item__right {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .service-item__price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+  }
+
+  .service-item__per {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: #ff6b35;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .cta__inner h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta__inner p {
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .service-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .service-item__right {
+      text-align: left;
+    }
+  }
+</style>

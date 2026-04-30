@@ -3,5 +3,350 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Home">
-  <h1>Hello world</h1>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">🐾 Trusted Pet Care in Your City</p>
+      <h1 class="hero__headline">Your pet's home<br/> away from home.</h1>
+      <p class="hero__sub">Professional, loving pet care while you're away. Because your furry family deserves the best.</p>
+      <div class="hero__actions">
+        <a href="/contact" class="btn btn--primary">Book a Visit</a>
+        <a href="/services" class="btn btn--outline">See Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SNAPSHOT -->
+  <section class="services-snap">
+    <div class="container">
+      <p class="eyebrow">What I Offer</p>
+      <h2>Services built around your pet</h2>
+      <div class="services-snap__grid">
+        <div class="service-card">
+          <span class="service-card__icon">🦮</span>
+          <h3>Dog Walking</h3>
+          <p>Daily walks tailored to your dog's pace and energy level.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">🏡</span>
+          <h3>Pet Sitting</h3>
+          <p>In-home visits so your pet stays comfortable in their own space.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">🌙</span>
+          <h3>Overnight Stays</h3>
+          <p>I stay the night so your pet is never alone for too long.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">🐱</span>
+          <h3>Cat Check-ins</h3>
+          <p>Feeding, playtime, and cuddles for your independent feline.</p>
+        </div>
+      </div>
+      <a href="/services" class="btn btn--outline">View All Services</a>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="about-teaser">
+    <div class="container about-teaser__inner">
+      <div class="about-teaser__text">
+        <p class="eyebrow">About Me</p>
+        <h2>A pet lover you can actually trust</h2>
+        <p>Hi! I'm [Name], a lifelong animal lover with years of experience caring for pets of all shapes and sizes. I treat every pet like my own — with patience, love, and plenty of treats.</p>
+        <a href="/about" class="btn btn--primary">More About Me</a>
+      </div>
+      <div class="about-teaser__image">
+        <div class="about-teaser__placeholder">📷</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY TEASER -->
+  <section class="gallery-teaser">
+    <div class="container">
+      <p class="eyebrow">Gallery</p>
+      <h2>Faces I've had the pleasure of caring for</h2>
+      <div class="gallery-teaser__grid">
+        <div class="gallery-placeholder">📷</div>
+        <div class="gallery-placeholder">📷</div>
+        <div class="gallery-placeholder">📷</div>
+        <div class="gallery-placeholder">📷</div>
+        <div class="gallery-placeholder">📷</div>
+        <div class="gallery-placeholder">📷</div>
+      </div>
+      <a href="/gallery" class="btn btn--outline">See Full Gallery</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS TEASER -->
+  <section class="testimonials">
+    <div class="container">
+      <p class="eyebrow">Reviews</p>
+      <h2>What pet parents are saying</h2>
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Absolutely amazing with our dog! He was so happy and well cared for. Will definitely book again."</p>
+          <p class="testimonial-card__author">— Sarah M.</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"I felt so at ease leaving my cats knowing they were in such good hands. 10/10 recommend!"</p>
+          <p class="testimonial-card__author">— James T.</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"My pup came back happy and tired — the best combo. Such a caring and professional sitter!"</p>
+          <p class="testimonial-card__author">— Priya K.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <h2>Ready to book? Let's chat! 🐾</h2>
+      <p>Reach out today and let's find the perfect care plan for your pet.</p>
+      <a href="/contact" class="btn btn--white">Get in Touch</a>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  /* ── Shared ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .btn--primary { background: #ff6b35; color: #fff; }
+  .btn--outline { background: transparent; color: #ff6b35; border: 2px solid #ff6b35; }
+  .btn--white   { background: #fff; color: #ff6b35; }
+
+  /* ── Hero ── */
+  .hero {
+    background: #fff8f5;
+    padding: 6rem 1.5rem;
+    text-align: center;
+  }
+
+  .hero__inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.9rem;
+    color: #ff6b35;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .hero__headline {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero__sub {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Services Snapshot ── */
+  .services-snap {
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .services-snap__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .service-card {
+    background: #fff;
+    border: 2px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-card:hover {
+    border-color: #ff6b35;
+    transform: translateY(-4px);
+  }
+
+  .service-card__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  /* ── About Teaser ── */
+  .about-teaser {
+    background: #fff8f5;
+    padding: 5rem 1.5rem;
+  }
+
+  .about-teaser__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-teaser__text p {
+    color: #555;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-teaser__placeholder {
+    background: #f0f0f0;
+    border-radius: 20px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  /* ── Gallery Teaser ── */
+  .gallery-teaser {
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .gallery-teaser__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+
+  .gallery-placeholder {
+    background: #f5f5f5;
+    border-radius: 12px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+
+  /* ── Testimonials ── */
+  .testimonials {
+    background: #fff8f5;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: left;
+    border: 2px solid #f0f0f0;
+  }
+
+  .testimonial-card__quote {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .testimonial-card__author {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #ff6b35;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: #ff6b35;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .cta__inner h2 { color: #fff; margin-bottom: 0.75rem; }
+  .cta__inner p  { color: rgba(255,255,255,0.85); margin-bottom: 2rem; font-size: 1.05rem; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .about-teaser__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-teaser__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
